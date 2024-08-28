@@ -8,7 +8,13 @@ const router = Router();
 router.post('/', async (request, response) => {
     const validador: any = jwtValidator(request.body);
     response.statusCode = validador.statusCode;
-    response.json(validador.retorno);
+    const retorno = validador.retorno;
+    if (retorno.error == undefined) {
+        response.json(true);
+    } else {
+        response.json(false);
+    }
+    // response.json(retorno);
 });
 
 export default router;
