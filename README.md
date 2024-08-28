@@ -1,6 +1,6 @@
 # Como utilizar o projeto
 
-Quando baixar o projeto na pasta raiz com o nodeJS instado, execute o seguinte comando:
+Quando baixar o projeto na pasta raiz com o nodeJS instalado, execute o seguinte comando:
 
 ```javascript
 npm i
