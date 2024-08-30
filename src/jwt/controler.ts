@@ -10,8 +10,10 @@ export const jwtValidator = (dados:any) => {
     
     try {
         const decoded: JWTInterface = jwtDecode(valJWT);
-        
+        console.log("jwtDecode", decoded);
         const hasKey = (obj: {}, key: string) => Object.keys(obj).includes(key);
+
+        //Inicia as validações para um jwt valido
         if ((!hasKey(decoded, 'Name') && !hasKey(decoded, 'Role') && !hasKey(decoded, 'Seed')) ||
             Object.keys(decoded).length != 3) {
             retorno = {error: true, msg: "Claims inválido para operação!"};
@@ -28,10 +30,10 @@ export const jwtValidator = (dados:any) => {
                 retorno = decoded;
             }
         }
-        console.log("JWT", Object.keys(decoded).length)
     } catch (error) {
         retorno = {error: true, msg: "JWT inválido para operação!"};
     }
-
+     
+     console.log("RetornoJWT", statusCode, retorno);
      return {retorno, statusCode}
 }
