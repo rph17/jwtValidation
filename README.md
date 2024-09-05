@@ -2,6 +2,8 @@
 
 O projeto foi desenvolvido em nodejs, para que seja possivel executa-lo instale a linguagem em seu ambiente caso não tenha seguindo a documentação: https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
 
+Toda estrutura do projeto consiste em APIGateway AWS e Lambdas gerando logs no cloudwatch.
+
 # Como utilizar o projeto :zap:
 
 Abra o terminal e execute o clone do projeto:
@@ -13,7 +15,7 @@ git clone https://github.com/rph17/jwtValidation.git
 Entre na pasta do projeto
 
 ```javascript
-cd jwtValidation
+cd jwtValidation/jwt-validation
 ```
 
 Agora execute o seguinte comando:
@@ -27,7 +29,7 @@ Este comando irá instalar as depedencias necessarias para execução do projeto
 Após isto para rodar o projeto basta executar:
 
 ```javascript
-npm run dev
+serverless dev
 ```
 
 Depois disso é so gerar o jwt no site jwt.io e adicionar o exemplo abaixo ao postman para utilizar a api.
@@ -37,7 +39,7 @@ Recomendamos o postman para executar a api de jwt: https://www.postman.com/downl
 Para realizar as chamandas basta importar no postman ou a ferramente de preferência o curl:
 
 ```cURL
-curl --location 'http://localhost:3333/jwt' \
+curl --location 'https://ss0c2s1ff9.execute-api.us-east-1.amazonaws.com/jwt' \
 --header 'Content-Type: application/json' \
 --data '{
     "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg"
@@ -66,8 +68,3 @@ Um exemplo de erro
 
 
 Status do Projeto: Concluido :heavy_check_mark:
-
-## Melhorias futuras :dash:
-
-> Implementar o serverless
-> Utilizar os lambdas das AWS

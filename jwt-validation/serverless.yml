@@ -1,0 +1,21 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: rph17
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: jwt-validation
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: jwt-validation
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+plugins:
+  - 'serverless-plugin-typescript-express'
+
+functions:
+  api:
+    handler: src/jwt/router.handler
+    events:
+      - httpApi:
+          method: POST
+          path: /jwt
